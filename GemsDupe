@@ -1,0 +1,17 @@
+local WeaponsInventory = require(game:GetService("ReplicatedStorage").Scripts.Client.Manager.PlayerManager)
+for a,b in pairs(WeaponsInventory.localPlayerData.gems)do pcall(function()
+if b.equipPosition==nil or b.equipPosition==""
+then local c={
+[1]={
+[1]=b.guid,
+[2]=b.guid,
+[3]=b.guid,
+[4]=b.guid,
+[5]=b.guid}
+}
+
+game:GetService("ReplicatedStorage").Remotes.FuseGem:InvokeServer(unpack(c))
+task.wait()
+end 
+end)
+end
