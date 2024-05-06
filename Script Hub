@@ -1,0 +1,77 @@
+local PabloLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/BatuKvi123/PabloLibV3/main/PabloLibV3"))()
+local window = PabloLib:Create(
+    "All universe hub | blade slayer",
+    "Enabled",
+    "p"
+)
+ 
+-- Tabs
+local tab1 = window:CreateTab("Main")
+local tab2 = window:CreateTab("Teleport")
+local tab3 = window:CreateTab("Roll")
+ 
+-- Buttons
+tab1:CreateButton("Lvl up Gem", function()
+    loadstring(game:HttpGet("https://pastebin.com/raw/rA0ehqfV"))()
+end)
+ 
+tab2:CreateButton("World 1", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/Teleport%20to%20world%201"))()
+end)
+tab2:CreateButton("World 2", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W2"))()
+end)
+tab2:CreateButton("World 3", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W3"))()
+end)
+tab2:CreateButton("World 4", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/780ce8a1dc0f29da2789628efe9cbf45d1585561/W4"))()
+end)
+tab1:CreateButton("Anti-lag", function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Lenx12/All-Universe-Hub/main/AntiLag'))()
+end)
+tab2:CreateButton("World 5", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/780ce8a1dc0f29da2789628efe9cbf45d1585561/W5"))()
+end)
+tab2:CreateButton("World 6", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W6"))()
+end)
+tab2:CreateButton("World 7", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W7"))()
+end)
+tab2:CreateButton("World 8", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W8"))()
+end)
+tab2:CreateButton("World 9", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W9"))()
+end)
+tab2:CreateButton("World 10", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Takatka/Teleport-/main/W10"))()
+end)
+ 
+tab3:CreateButton("Mark Roll | Gotta Have Materials", function()
+    local args = {
+        [1] = 400001
+    }
+ 
+    game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("RerollOrnament"):InvokeServer(unpack(args))
+end)
+ 
+local autoclickEnabled = false
+local toggleButton = tab1:CreateToggle("Autogain Power", function(state)
+    autoclickEnabled = state
+    if state then
+        print("Autoclick enabled!")
+        autoclick()
+    else
+        print("Autoclick disabled!")
+    end
+end)
+ 
+function autoclick()
+    while autoclickEnabled do
+        game:GetService("ReplicatedStorage").Remotes.PlayerClickAttack:FireServer()
+        wait(0.1) -- Adjust the delay as needed
+    end
+end
+ 
